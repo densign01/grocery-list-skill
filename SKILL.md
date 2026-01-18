@@ -64,8 +64,9 @@ I'll parse everything, combine duplicate ingredients, and add them to your Groce
 From both the scraped content AND any plain text recipes, extract every ingredient and **simplify to shopping-friendly format**:
 
 **Formatting Rules:**
-- **Drop quantities and units** - "2 cups flour" → "Flour"
-- **Only include numbers when meaningful** - "3 onions" stays as "3 onions" (you need to grab multiple)
+- **Keep amounts for packaged items** - "18oz chicken broth" → "18oz chicken broth" (need to buy the right size)
+- **Keep counts for produce** - "3 onions" → "3 onions" (need to grab multiple)
+- **Drop measurements for bulk staples** - "2 cups flour" → "Flour" (you buy a bag, not measure at store)
 - **Skip pantry staples** - omit salt, pepper, olive oil, vegetable oil (assume user has these)
 - **Use simple names** - "boneless skinless chicken breast" → "Chicken breast"
 - **Capitalize first letter** - "Eggs" not "eggs"
