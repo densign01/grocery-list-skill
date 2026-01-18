@@ -46,7 +46,7 @@ This skill takes a weekly meal plan (mix of recipe URLs and plain-text items), s
 ## Features
 
 - **Recipe scraping** via [agent-browser](https://github.com/vercel-labs/agent-browser) (headless Chromium)
-- **Intelligent ingredient parsing** - simplifies "2 cups all-purpose flour" → "Flour"
+- **Intelligent ingredient parsing** - keeps amounts for packaged items, simplifies bulk staples
 - **Quantity combining** - merges garlic needs across recipes into one item
 - **Duplicate detection** - checks existing list to avoid duplicates
 - **Pantry staple filtering** - skips salt, pepper, olive oil (configurable)
@@ -91,8 +91,8 @@ Also add:
          │
          ▼
 ┌─────────────────┐
-│ Parse & Simplify│  ← Extract ingredients, drop quantities
-│ Ingredients     │    where not meaningful, skip staples
+│ Parse & Simplify│  ← Keep amounts for packaged items,
+│ Ingredients     │    simplify bulk staples, skip pantry items
 └────────┬────────┘
          │
          ▼
@@ -118,8 +118,9 @@ Also add:
 
 | Rule | Example |
 |------|---------|
-| Drop units for pantry items | "2 cups flour" → "Flour" |
-| Keep counts when meaningful | "3 onions" → "3 onions" |
+| Keep amounts for packaged items | "18oz chicken broth" → "18oz chicken broth" |
+| Keep counts for produce | "3 onions" → "3 onions" |
+| Drop measurements for bulk staples | "2 cups flour" → "Flour" |
 | Skip pantry staples | salt, pepper, olive oil, vegetable oil |
 | Simplify names | "boneless skinless chicken breast" → "Chicken breast" |
 | Capitalize first letter | "eggs" → "Eggs" |
