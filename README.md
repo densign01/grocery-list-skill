@@ -1,6 +1,43 @@
 # Grocery List Skill
 
-Parse meal plans with recipe URLs, extract and combine ingredients, and add them to Apple Reminders.
+A [Claude Code](https://claude.ai/claude-code) skill that parses meal plans with recipe URLs, extracts and combines ingredients, and adds them to Apple Reminders.
+
+## Installation
+
+### Step 1: Install the Skill
+
+Clone this repo into your Claude Code skills directory:
+
+```bash
+git clone https://github.com/densign/grocery-list-skill ~/.claude/skills/groceries
+```
+
+Or manually copy the skill file:
+
+```bash
+mkdir -p ~/.claude/skills/groceries
+curl -o ~/.claude/skills/groceries/SKILL.md \
+  https://raw.githubusercontent.com/densign/grocery-list-skill/main/SKILL.md
+```
+
+### Step 2: Install Dependencies
+
+**agent-browser** (required for recipe scraping):
+
+```bash
+npm install -g agent-browser
+agent-browser install  # Downloads Chromium
+```
+
+### Step 3: Create a "Groceries" List in Apple Reminders
+
+Open Apple Reminders and create a new list called **"Groceries"** (case-sensitive).
+
+### Step 4: Verify Installation
+
+In Claude Code, type `/groceries` — you should see the skill activate.
+
+---
 
 ## Overview
 
@@ -14,19 +51,6 @@ This skill takes a weekly meal plan (mix of recipe URLs and plain-text items), s
 - **Duplicate detection** - checks existing list to avoid duplicates
 - **Pantry staple filtering** - skips salt, pepper, olive oil (configurable)
 - **Apple Reminders integration** via AppleScript
-
-## Requirements
-
-- macOS (for Apple Reminders integration)
-- [agent-browser](https://github.com/vercel-labs/agent-browser) CLI installed
-- A "Groceries" list in Apple Reminders
-
-### Installing agent-browser
-
-```bash
-npm install -g agent-browser
-agent-browser install  # Downloads Chromium
-```
 
 ## Usage
 
