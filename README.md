@@ -9,7 +9,7 @@ A [Claude Code](https://claude.ai/claude-code) skill that parses meal plans with
 Clone this repo into your Claude Code skills directory:
 
 ```bash
-git clone https://github.com/densign/grocery-list-skill ~/.claude/skills/groceries
+git clone https://github.com/densign01/grocery-list-skill ~/.claude/skills/groceries
 ```
 
 Or manually copy the skill file:
